@@ -1,65 +1,85 @@
-import Image from "next/image";
+import Nav from "./components/Nav";
+import Link from "next/link";
 
-export default function Home() {
+const apps = [
+  { name: "Countdown Timer", bundleId: "com.hon.day", icon: "📅" },
+  { name: "Voice Changer", bundleId: "com.hon.voicechange", icon: "🎙️" },
+  { name: "Daily Quotes", bundleId: "com.hon.quote", icon: "💬" },
+];
+
+const articles = [
+  {
+    slug: "app-process",
+    title: "กระบวนการทำแอป iOS ตั้งแต่ไอเดียจนถึง Launch",
+    excerpt: "10 ขั้นตอน — Research, PRD, Stitch, UI/UX, Code, Integration, Test, ASO, Screenshot, Launch",
+    date: "2026-03-30",
+  },
+  {
+    slug: "quality-ios-app",
+    title: "การทำแอป iOS ให้มีคุณภาพ",
+    excerpt: "สิ่งที่ต้องรู้ก่อน submit แอปขึ้น App Store",
+    date: "2026-03-30",
+  },
+];
+
+export default function HomePage() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
+    <div className="min-h-screen">
+      <Nav />
+
+      <header className="max-w-4xl mx-auto px-6 py-16">
+        <h1 className="text-4xl font-bold leading-tight">
+          Build better apps.<br />
+          <span className="text-accent">Ship faster.</span>
+        </h1>
+        <p className="text-text-secondary mt-4 text-lg max-w-xl">
+          บทความ เครื่องมือ และ privacy policies สำหรับ APP26 iOS apps
+        </p>
+      </header>
+
+      <main className="max-w-4xl mx-auto px-6 pb-20 space-y-12">
+        {/* Apps */}
+        <section>
+          <h2 className="text-text-muted text-xs font-semibold uppercase tracking-widest mb-4">Our Apps</h2>
+          <div className="grid grid-cols-3 gap-4">
+            {apps.map((app) => (
+              <Link
+                key={app.bundleId}
+                href={`/privacy/${app.bundleId}`}
+                className="bg-bg-surface border border-border rounded-xl p-5 hover:border-border-hover transition-colors text-center"
+              >
+                <span className="text-3xl">{app.icon}</span>
+                <p className="font-medium mt-2 text-sm">{app.name}</p>
+                <p className="text-text-muted text-xs mt-1">Privacy Policy</p>
+              </Link>
+            ))}
+          </div>
+        </section>
+
+        {/* Blog */}
+        <section>
+          <h2 className="text-text-muted text-xs font-semibold uppercase tracking-widest mb-4">Articles</h2>
+          <div className="space-y-4">
+            {articles.map((a) => (
+              <Link
+                key={a.slug}
+                href={`/blog/${a.slug}`}
+                className="block bg-bg-surface border border-border rounded-xl p-6 hover:border-border-hover transition-colors group"
+              >
+                <span className="text-text-muted text-xs">{a.date}</span>
+                <h3 className="text-lg font-bold mt-1 group-hover:text-accent transition-colors">{a.title}</h3>
+                <p className="text-text-secondary text-sm mt-2">{a.excerpt}</p>
+              </Link>
+            ))}
+          </div>
+        </section>
       </main>
+
+      <footer className="border-t border-border">
+        <div className="max-w-4xl mx-auto px-6 py-6 text-text-muted text-xs">
+          APP26 — iOS App Studio
+        </div>
+      </footer>
     </div>
   );
 }
