@@ -6,6 +6,7 @@ const apps: Record<string, { name: string; icon: string }> = {
   "com.hon.day": { name: "Countdown Timer - Day counter", icon: "📅" },
   "com.hon.voicechange": { name: "Voice Changer - Sound & Mic", icon: "🎙️" },
   "com.hon.quote": { name: "Daily Quotes Motivation & Life", icon: "💬" },
+  "com.hon.workout": { name: "Home Workout - 7 Min Exercise", icon: "💪" },
 };
 
 export default async function PrivacyPage({
@@ -22,92 +23,105 @@ export default async function PrivacyPage({
       <Nav />
 
       <article className="max-w-3xl mx-auto px-6 py-12">
-        <div className="flex items-center gap-3 mb-6">
-          <span className="text-3xl">{app.icon}</span>
-          <div>
-            <h1 className="text-2xl font-bold">{app.name}</h1>
-            <p className="text-text-muted text-xs font-mono">{bundleId}</p>
-          </div>
-        </div>
+        <h1 className="text-2xl font-bold mb-1">Privacy Policy</h1>
+        <p className="text-text-muted text-sm mb-8">Last updated: March 30, 2026</p>
 
-        <h2 className="text-xl font-bold mb-4">Privacy Policy</h2>
+        <p className="text-text-secondary text-sm leading-relaxed mb-8">
+          <strong className="text-text-primary">{app.name}</strong> (&quot;the App&quot;) is developed by Nattapon Kittisuphat (&quot;we&quot;, &quot;us&quot;). This policy explains how we collect, use, and protect your information.
+        </p>
 
-        <div className="space-y-6 text-text-secondary text-sm leading-relaxed">
-          <p>Last updated: March 30, 2026</p>
+        <div className="space-y-8 text-text-secondary text-sm leading-relaxed">
 
           <section>
-            <h3 className="text-text-primary font-semibold mb-2">Information We Collect</h3>
-            <p>
-              We collect minimal data necessary to provide and improve our app. This includes:
-            </p>
-            <ul className="list-disc list-inside mt-2 space-y-1">
-              <li><strong>Device Information:</strong> Device model, OS version, and app version for crash reporting and compatibility.</li>
-              <li><strong>Usage Data:</strong> Anonymous analytics (via Mixpanel) including app opens, feature usage, and purchase events. No personal information is tied to this data.</li>
-              <li><strong>Advertising ID (IDFA):</strong> Collected only with your consent (via App Tracking Transparency prompt) to serve personalized ads through Google AdMob.</li>
+            <h2 className="text-lg font-bold text-text-primary mb-3">1. Information We Collect</h2>
+            <p>We collect the following types of data:</p>
+            <ul className="list-disc list-inside mt-2 space-y-2">
+              <li><strong>Usage Data:</strong> App interactions, feature usage, and preferences — stored locally on your device.</li>
+              <li><strong>Analytics Data:</strong> Anonymous usage events (app opens, core actions, feature usage) sent to Mixpanel for product improvement. No personal information is tied to this data.</li>
+              <li><strong>Advertising Data:</strong> Device advertising identifier (IDFA) used by Google AdMob to serve relevant ads, subject to your App Tracking Transparency (ATT) consent.</li>
+              <li><strong>Purchase Data:</strong> In-app purchase and subscription records managed by Apple — we do not collect or store payment information.</li>
             </ul>
           </section>
 
           <section>
-            <h3 className="text-text-primary font-semibold mb-2">Advertising</h3>
-            <p>
-              We use Google AdMob to display ads. AdMob may collect and use data as described in{" "}
-              <a href="https://policies.google.com/privacy" className="text-accent hover:underline" target="_blank" rel="noopener noreferrer">
-                Google&apos;s Privacy Policy
-              </a>. We implement Google UMP (User Messaging Platform) for GDPR consent before loading any ads.
-            </p>
-          </section>
-
-          <section>
-            <h3 className="text-text-primary font-semibold mb-2">In-App Purchases</h3>
-            <p>
-              All purchases are processed by Apple through the App Store. We do not collect or store any payment information. Purchase status is stored locally on your device.
-            </p>
-          </section>
-
-          <section>
-            <h3 className="text-text-primary font-semibold mb-2">Data Storage</h3>
-            <p>
-              All user data (favorites, settings, preferences) is stored locally on your device using SwiftData and UserDefaults. We do not maintain any server-side database of user data.
-            </p>
-          </section>
-
-          <section>
-            <h3 className="text-text-primary font-semibold mb-2">Third-Party Services</h3>
-            <ul className="list-disc list-inside space-y-1">
-              <li><strong>Google AdMob</strong> — Advertising</li>
-              <li><strong>Mixpanel</strong> — Anonymous analytics</li>
-              <li><strong>Apple StoreKit</strong> — In-app purchases</li>
+            <h2 className="text-lg font-bold text-text-primary mb-3">2. How We Use Your Information</h2>
+            <ul className="list-disc list-inside space-y-2">
+              <li>To provide and improve the App&apos;s features</li>
+              <li>To track your progress and usage streaks</li>
+              <li>To display relevant advertisements (free users only)</li>
+              <li>To analyze app performance and user behavior anonymously</li>
+              <li>To send reminders and notifications (with your permission)</li>
             </ul>
           </section>
 
           <section>
-            <h3 className="text-text-primary font-semibold mb-2">Children&apos;s Privacy</h3>
-            <p>
-              Our app is not directed to children under 13. We do not knowingly collect personal information from children.
-            </p>
+            <h2 className="text-lg font-bold text-text-primary mb-3">3. Third-Party Services</h2>
+            <p>The App uses the following third-party services:</p>
+            <ul className="list-disc list-inside mt-2 space-y-2">
+              <li><strong>Google AdMob</strong> — Advertising. <a href="https://policies.google.com/privacy" className="text-accent hover:underline" target="_blank" rel="noopener noreferrer">Google Privacy Policy</a></li>
+              <li><strong>Mixpanel</strong> — Analytics. <a href="https://mixpanel.com/legal/privacy-policy/" className="text-accent hover:underline" target="_blank" rel="noopener noreferrer">Mixpanel Privacy Policy</a></li>
+              <li><strong>Apple StoreKit</strong> — In-app purchases and subscriptions.</li>
+            </ul>
           </section>
 
           <section>
-            <h3 className="text-text-primary font-semibold mb-2">Your Rights</h3>
-            <p>
-              You can opt out of personalized advertising by declining the App Tracking Transparency prompt. You can delete all local data by uninstalling the app.
-            </p>
+            <h2 className="text-lg font-bold text-text-primary mb-3">4. Advertising & Tracking</h2>
+            <p>We use Google AdMob to display ads to free users. Before collecting your IDFA for personalized advertising, we request your consent via Apple&apos;s App Tracking Transparency (ATT) framework. We also implement Google UMP (User Messaging Platform) for GDPR consent before loading any ads.</p>
+            <p className="mt-2">You can change your tracking preference at any time in your device Settings. Users who have purchased ad removal do not see any advertisements.</p>
           </section>
 
           <section>
-            <h3 className="text-text-primary font-semibold mb-2">Contact</h3>
-            <p>
-              If you have questions about this privacy policy, contact us at:{" "}
-              <a href="mailto:nattahon@gmail.com" className="text-accent hover:underline">
-                nattahon@gmail.com
-              </a>
+            <h2 className="text-lg font-bold text-text-primary mb-3">5. In-App Purchases & Subscriptions</h2>
+            <p>The App may offer one-time purchases and/or auto-renewable subscriptions. All transactions are processed by Apple through the App Store. We do not collect or store any payment information.</p>
+            <p className="mt-2">For subscriptions:</p>
+            <ul className="list-disc list-inside mt-2 space-y-2">
+              <li>Payment is charged to your Apple ID account at confirmation of purchase.</li>
+              <li>Subscriptions automatically renew unless canceled at least 24 hours before the end of the current period.</li>
+              <li>You can manage and cancel subscriptions in your Apple ID account settings.</li>
+              <li>Any unused portion of a free trial period will be forfeited when you purchase a subscription.</li>
+            </ul>
+          </section>
+
+          <section>
+            <h2 className="text-lg font-bold text-text-primary mb-3">6. Data Storage & Security</h2>
+            <p>Your data (preferences, favorites, progress) is stored locally on your device. We do not maintain user accounts or store personal data on external servers.</p>
+            <p className="mt-2">Analytics data sent to Mixpanel is anonymous and cannot be used to identify you personally.</p>
+          </section>
+
+          <section>
+            <h2 className="text-lg font-bold text-text-primary mb-3">7. Children&apos;s Privacy</h2>
+            <p>The App is not directed at children under 13. We do not knowingly collect personal information from children.</p>
+          </section>
+
+          <section>
+            <h2 className="text-lg font-bold text-text-primary mb-3">8. Your Rights</h2>
+            <p>You can:</p>
+            <ul className="list-disc list-inside mt-2 space-y-2">
+              <li>Opt out of ad tracking via Settings → Privacy → Tracking</li>
+              <li>Delete all local app data by uninstalling the App</li>
+              <li>Manage subscriptions via Settings → Apple ID → Subscriptions</li>
+              <li>Request information about your data by contacting us</li>
+            </ul>
+          </section>
+
+          <section>
+            <h2 className="text-lg font-bold text-text-primary mb-3">9. Changes to This Policy</h2>
+            <p>We may update this policy from time to time. Changes will be posted on this page with an updated date.</p>
+          </section>
+
+          <section>
+            <h2 className="text-lg font-bold text-text-primary mb-3">10. Contact Us</h2>
+            <p>If you have questions about this privacy policy, contact us at:</p>
+            <p className="mt-2">
+              Email: <a href="mailto:nattahon@gmail.com" className="text-accent hover:underline">nattahon@gmail.com</a>
             </p>
           </section>
+
         </div>
       </article>
 
       <div className="max-w-3xl mx-auto px-6 pb-12">
-        <Link href="/" className="text-accent text-sm hover:underline">← Back to home</Link>
+        <Link href="/privacy" className="text-accent text-sm hover:underline">← All Privacy Policies</Link>
       </div>
     </div>
   );
