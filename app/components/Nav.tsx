@@ -8,8 +8,8 @@ export default function Nav() {
           APP26<span className="text-accent">.</span>
         </Link>
         <div className="flex items-center gap-6 text-sm text-text-secondary">
-          <Link href="/blog" className="hover:text-text-primary transition-colors">Blog</Link>
           <Link href="/privacy" className="hover:text-text-primary transition-colors">Privacy</Link>
+          <Link href="/terms" className="hover:text-text-primary transition-colors">Terms</Link>
         </div>
       </div>
     </nav>

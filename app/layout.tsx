@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "APP26 — iOS App Studio",
-  description: "Privacy policies, blog, and resources for APP26 iOS apps",
+  description: "Privacy policy, terms of use, and resources for APP26 iOS apps",
 };
 
 export default function RootLayout({
