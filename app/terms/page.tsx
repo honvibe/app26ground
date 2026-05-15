@@ -8,7 +8,7 @@ export default function TermsPage() {
 
       <article className="max-w-3xl mx-auto px-6 py-12">
         <h1 className="text-2xl font-bold mb-1">Terms of Use</h1>
-        <p className="text-text-muted text-sm mb-8">Last updated: April 4, 2026</p>
+        <p className="text-text-muted text-sm mb-8">Last updated: May 15, 2026</p>
 
         <p className="text-text-secondary text-sm leading-relaxed mb-8">
           These terms of use apply to all apps published by <strong className="text-text-primary">Nattapon Kittisuphat</strong> (&quot;APP26&quot;, &quot;we&quot;, &quot;us&quot;) on the Apple App Store. By downloading or using any of our apps, you agree to these terms.
@@ -52,6 +52,7 @@ export default function TermsPage() {
           <section>
             <h2 className="text-lg font-bold text-text-primary mb-3">5. Disclaimer</h2>
             <p>Our apps are provided &quot;as is&quot; without warranties of any kind. We do not guarantee that the app will be error-free or uninterrupted. For fitness and health-related apps, the content is for informational purposes only and should not replace professional medical advice.</p>
+            <p className="mt-2">For credential-storing apps (One Time Password): you are responsible for safeguarding your master device, App Lock PIN, backup passphrase, and iCloud account. Loss of these may make stored 2FA codes or passwords unrecoverable. Always keep your own backup of critical accounts (such as printed recovery codes from each service).</p>
           </section>
 
           <section>

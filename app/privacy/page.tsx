@@ -8,7 +8,7 @@ export default function PrivacyPage() {
 
       <article className="max-w-3xl mx-auto px-6 py-12">
         <h1 className="text-2xl font-bold mb-1">Privacy Policy</h1>
-        <p className="text-text-muted text-sm mb-8">Last updated: March 30, 2026</p>
+        <p className="text-text-muted text-sm mb-8">Last updated: May 15, 2026</p>
 
         <p className="text-text-secondary text-sm leading-relaxed mb-8">
           This privacy policy applies to all apps published by <strong className="text-text-primary">Nattapon Kittisuphat</strong> (&quot;APP26&quot;, &quot;we&quot;, &quot;us&quot;) on the Apple App Store. By using any of our apps, you agree to the terms described below.
@@ -89,12 +89,31 @@ export default function PrivacyPage() {
           </section>
 
           <section>
-            <h2 className="text-lg font-bold text-text-primary mb-3">9. Changes to This Policy</h2>
+            <h2 className="text-lg font-bold text-text-primary mb-3">9. Apps That Store Credentials (One Time Password)</h2>
+            <p>The <strong className="text-text-primary">One Time Password</strong> app stores sensitive credentials on your device. This section describes how that data is protected.</p>
+            <ul className="list-disc list-inside mt-2 space-y-2">
+              <li><strong>2FA seeds (TOTP secrets):</strong> Encrypted with ChaChaPoly using a master key stored in the iOS Keychain (hardware-protected by the Secure Enclave). The plaintext seed never leaves the device unencrypted.</li>
+              <li><strong>Passwords:</strong> Each password field is encrypted with the same master key before being written to local storage (SwiftData). Titles, usernames, and URLs are stored in plaintext so search works — passwords themselves are never readable from the database file.</li>
+              <li><strong>iCloud Sync (Pro, optional):</strong> When enabled, encrypted records sync via Apple&apos;s <code>CKRecord.encryptedValues</code> API in your private CloudKit database. With <a href="https://support.apple.com/HT212520" className="text-accent hover:underline" target="_blank" rel="noopener noreferrer">Apple Advanced Data Protection</a> on, sync is end-to-end encrypted — Apple cannot read your data. We never see your data either way.</li>
+              <li><strong>Master key:</strong> Generated on first launch using <code>SecRandomCopyBytes</code> and stored with the Keychain accessibility flag <code>kSecAttrAccessibleWhenUnlockedThisDeviceOnly</code>. It is never transmitted to any server we control.</li>
+              <li><strong>Camera:</strong> Used solely to scan QR codes for adding 2FA accounts. No images are stored, recorded, or transmitted. Camera access is requested only when you open the QR scanner.</li>
+              <li><strong>Clipboard auto-clear:</strong> When you copy a code or password, the clipboard is automatically cleared after 60 seconds to reduce exposure to other apps.</li>
+              <li><strong>App Lock:</strong> Optional Face ID / Touch ID / passcode lock gates access to the vault. The PIN (if set) is salted and hashed before being stored in the Keychain.</li>
+              <li><strong>Encrypted backup export (Pro):</strong> Optionally produces a passphrase-encrypted file you save to Files or AirDrop. Loss of the passphrase makes the backup unrecoverable.</li>
+              <li><strong>Legacy data migration:</strong> If you used a previous version of One Time Password to store passwords, those records are read from local storage, re-encrypted with the new master key, and made available in the Passwords tab. The legacy file is never deleted automatically.</li>
+              <li><strong>No backend:</strong> We do not operate a server that stores your credentials. There is no APP26 account, no APP26 cloud, and no APP26 employee with access to your data.</li>
+              <li><strong>Auto-renewable subscription:</strong> Annual Pro renews yearly via your Apple ID. Cancel anytime in <em>Settings → Apple ID → Subscriptions</em>; cancellation takes effect at the end of the current period.</li>
+              <li><strong>Analytics scope:</strong> Mixpanel events for One Time Password contain only metadata (counts, action types, timestamps). Seed values and password contents are never sent to analytics.</li>
+            </ul>
+          </section>
+
+          <section>
+            <h2 className="text-lg font-bold text-text-primary mb-3">10. Changes to This Policy</h2>
             <p>We may update this policy from time to time. Changes will be posted on this page with an updated date.</p>
           </section>
 
           <section>
-            <h2 className="text-lg font-bold text-text-primary mb-3">10. Contact Us</h2>
+            <h2 className="text-lg font-bold text-text-primary mb-3">11. Contact Us</h2>
             <p>If you have questions about this privacy policy, contact us at:</p>
             <p className="mt-2">
               Email: <a href="mailto:nattahon@gmail.com" className="text-accent hover:underline">nattahon@gmail.com</a>
